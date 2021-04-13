@@ -8,7 +8,8 @@ from pydantic.networks import AnyHttpUrl
 class Settings(BaseSettings):
     PROJECT_NAME: str = 'Reports'
     SQLALCHEMY_DATABASE_URI: str = 'sqlite:///database.db?check_same_thread=False'
-    SECRET_KEY: str = secrets.token_urlsafe(32)
+    # SECRET_KEY: str = secrets.token_urlsafe(32)
+    SECRET_KEY: str = 'abracadabra'
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
     SMTP_TLS: bool = True
     SMTP_PORT: Optional[int] = None
