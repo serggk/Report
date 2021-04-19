@@ -35,5 +35,9 @@ export interface IReportRecord {
 
 export interface IOpcoRecord {
     id: number;
-    opco: string;
+    title: string;
+}
+
+export interface IOpcoRecordCreate {
+    title: string;
 }

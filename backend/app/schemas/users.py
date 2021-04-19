@@ -1,16 +1,7 @@
-from app.models import Opco
-import datetime
+from .opco import Opco
 from typing import Optional
 
 from pydantic import BaseModel, EmailStr
-
-
-class Opco(BaseModel):
-    id: Optional[int] = None
-    title: str
-
-    class Config:
-        orm_mode = True
 
 
 class UserBase(BaseModel):
@@ -50,20 +41,3 @@ class Msg(BaseModel):
     msg: str
 
 
-class ReportBase(BaseModel):
-    id: Optional[int] = None
-    date: datetime.date
-    time: datetime.time
-    rx: int
-    tx: int
-
-
-class ReportFile(ReportBase):
-    opco: str
-
-
-class Report(ReportBase):
-    opco: Opco
-
-    class Config:
-        orm_mode = True

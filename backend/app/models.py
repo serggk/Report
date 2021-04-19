@@ -24,7 +24,6 @@ class Users(Base):
 
 class Opco(Base):
     title = Column(String, nullable=False, unique=True)
-    report = relationship('Report', back_populates='opco')
     users = relationship('Users', back_populates='opco')
 
 
@@ -33,5 +32,4 @@ class Report(Base):
     time = Column(Time, nullable=False)
     rx = Column(Integer, nullable=False)
     tx = Column(Integer, nullable=False)
-    opco_id = Column(Integer, ForeignKey('opco.id'))
-    opco = relationship('Opco', back_populates='report')
+    opco = Column(String, nullable=False)

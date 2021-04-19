@@ -11,10 +11,17 @@ export const getters = {
         }
     },
     adminOpco: (state: AdminState) => state.opco,
+    adminOneOpco: (state: AdminState) => (opcoId: number) => {
+        const filteredOpco = state.opco.filter((opco) => opco.id === opcoId);
+        if (filteredOpco.length > 0) {
+            return { ...filteredOpco[0] };
+        }
+    },
 };
 
 const { read } = getStoreAccessors<AdminState, State>('');
 
 export const readAdminOneUser = read(getters.adminOneUser);
 export const readAdminUsers = read(getters.adminUsers);
+export const readAdminOneOpco = read(getters.adminOneOpco);
 export const readAdminOpco = read(getters.adminOpco);

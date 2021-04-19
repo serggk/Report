@@ -86,6 +86,30 @@ export default new Router({
                     /* webpackChunkName: "main-admin-users-create" */ './views/main/admin/CreateUser.vue'),
                 },
                 {
+                  path: 'opco',
+                  redirect: 'opco/all',
+                },
+                {
+                  path: 'opco/all',
+                  component: () => import(
+                    /* webpackChunkName: "main-admin-opco" */ './views/main/admin/AdminOpco.vue'),
+                },
+                {
+                  path: 'opco/edit/:id',
+                  name: 'main-admin-opco-edit',
+                  component: () => import(
+                    /* webpackChunkName: "main-admin-opco-edit" */ './views/main/admin/CreateOpco.vue'),
+                  props: {
+                    isCreated: false,
+                  },
+                },
+                {
+                  path: 'opco/create',
+                  name: 'main-admin-opco-create',
+                  component: () => import(
+                    /* webpackChunkName: "main-admin-opco-create" */ './views/main/admin/CreateOpco.vue'),
+                },
+                {
                   path: 'uploadfile',
                   component: () => import(/* webpackChunkName: "main-report-uploadfile" */ './views/main/admin/ReportUploadFile.vue'),
                 },

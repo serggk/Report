@@ -48,12 +48,12 @@
               <v-list-item-title>Manage Users</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item to="/main/admin/users/create">
+          <v-list-item to="/main/admin/opco/all">
             <v-list-item-action>
               <v-icon>person_add</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>Create User</v-list-item-title>
+              <v-list-item-title>Manage Companies</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-list-item to="/main/admin/uploadfile">

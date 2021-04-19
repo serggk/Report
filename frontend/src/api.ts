@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { apiUrl } from '@/env';
-import { IUserProfile, IUserProfileUpdate, IUserProfileCreate, IReportRecord, IOpcoRecord } from './interfaces';
+import { IUserProfile, IUserProfileUpdate, IUserProfileCreate, IReportRecord, IOpcoRecord, IOpcoRecordCreate } from './interfaces';
 
 function authHeaders(token: string) {
   return {
@@ -54,6 +54,15 @@ export const api = {
     return axios.post(`${apiUrl}/api/report/uploadfile`, formData, authHeaders(token));
   },
   async getOpco(token: string) {
-    return axios.get<IOpcoRecord[]>(`${apiUrl}/api/report/opco`, authHeaders(token));
+    return axios.get<IOpcoRecord[]>(`${apiUrl}/api/opco/`, authHeaders(token));
+  },
+  async createOpco(token: string, data: IOpcoRecordCreate) {
+    return axios.post<IOpcoRecord>(`${apiUrl}/api/opco/`, data, authHeaders(token));
+  },
+  async updateOpco(token: string, opcoId: number, data: IOpcoRecordCreate) {
+    return axios.put<IOpcoRecord>(`${apiUrl}/api/opco/${opcoId}`, data, authHeaders(token));
+  },
+  async deleteOpco(token: string, opcoId: number) {
+    return axios.delete<IOpcoRecord>(`${apiUrl}/api/opco/${opcoId}`, authHeaders(token));
   },
 };

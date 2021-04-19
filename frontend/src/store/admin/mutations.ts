@@ -12,8 +12,17 @@ export const mutations = {
         users.push(payload);
         state.users = users;
     },
-    setOpco(state: AdminState, payload: IOpcoRecord[]) {
+    setOpcos(state: AdminState, payload: IOpcoRecord[]) {
         state.opco = payload;
+    },
+    setOpco(state: AdminState, payload: IOpcoRecord) {
+        const opcos = state.opco.filter((company: IOpcoRecord) => company.id !== payload.id);
+        opcos.push(payload);
+        state.opco = opcos;
+    },
+    deleteOpco(state: AdminState, payload: IOpcoRecord) {
+        const opco = state.opco.filter((company: IOpcoRecord) => company.id !== payload.id);
+        state.opco = opco;
     },
 };
 
@@ -21,4 +30,6 @@ const { commit } = getStoreAccessors<AdminState, State>('');
 
 export const commitSetUser = commit(mutations.setUser);
 export const commitSetUsers = commit(mutations.setUsers);
+export const commitSetOpcos = commit(mutations.setOpcos);
 export const commitSetOpco = commit(mutations.setOpco);
+export const commitDeleteOpco = commit(mutations.deleteOpco);

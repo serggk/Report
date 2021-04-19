@@ -24,5 +24,6 @@ api_router = APIRouter(prefix='/api')
 api_router.include_router(views.user_router)
 api_router.include_router(views.login_router)
 api_router.include_router(views.report_router)
+api_router.include_router(views.opco_router)
 
 app.include_router(api_router)
