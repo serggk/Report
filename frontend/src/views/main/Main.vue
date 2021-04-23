@@ -87,7 +87,7 @@
         </v-list>
       </v-layout>
     </v-navigation-drawer>
-    <v-app-bar dark color="primary" app>
+    <v-app-bar color="primary" app>
       <v-app-bar-nav-icon @click.stop="switchShowDrawer"></v-app-bar-nav-icon>
       <v-app-bar-title v-text="appName"></v-app-bar-title>
       <v-spacer></v-spacer>
